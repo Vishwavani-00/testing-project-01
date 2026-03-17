@@ -1,0 +1,40 @@
+pipeline:
+  bronze_path: "data/bronze"
+  silver_path: "data/silver"
+  gold_path: "data/gold"
+  log_level: "INFO"
+
+quality:
+  max_null_pct: 0.10       # <10% missing values threshold
+  allow_duplicates: false
+
+datasets:
+  titanic:
+    source: "data/bronze/titanic.csv"
+    key_fields: ["Age", "Sex", "Fare", "Pclass", "Survived"]
+    target_silver: "data/silver/titanic_clean.csv"
+    target_gold: "data/gold/titanic_features.csv"
+
+  house_prices:
+    source: "data/bronze/house_prices.csv"
+    key_fields: ["LotArea", "OverallQual", "YearBuilt", "SalePrice"]
+    target_silver: "data/silver/house_prices_clean.csv"
+    target_gold: "data/gold/house_prices_features.csv"
+
+  netflix:
+    source: "data/bronze/netflix_titles.csv"
+    key_fields: ["title", "type", "listed_in", "release_year", "country"]
+    target_silver: "data/silver/netflix_clean.csv"
+    target_gold: "data/gold/netflix_aggregated.csv"
+
+  fraud:
+    source: "data/bronze/creditcard.csv"
+    key_fields: ["Amount", "Time", "Class"]
+    target_silver: "data/silver/fraud_clean.csv"
+    target_gold: "data/gold/fraud_features.csv"
+
+  retail_sales:
+    source: "data/bronze/retail_sales.csv"
+    key_fields: ["Store", "Date", "Sales", "IsHoliday"]
+    target_silver: "data/silver/retail_sales_clean.csv"
+    target_gold: "data/gold/retail_sales_aggregated.csv"
