@@ -1,0 +1,72 @@
+{
+  "titanic": {
+    "rows_bronze": 891,
+    "rows_silver": 891,
+    "dq": {
+      "nulls_before": {
+        "PassengerId": 0,
+        "Survived": 0,
+        "Pclass": 0,
+        "Name": 0,
+        "Sex": 0,
+        "Age": 177,
+        "SibSp": 0,
+        "Parch": 0,
+        "Ticket": 0,
+        "Fare": 0,
+        "Cabin": 687,
+        "Embarked": 2
+      },
+      "duplicates_before": 0,
+      "rows": 891,
+      "nulls_after": 0,
+      "status": "PASS"
+    }
+  },
+  "house_prices": {
+    "rows_bronze": 20640,
+    "rows_silver": 20640,
+    "dq": {
+      "nulls_before": {
+        "longitude": 0,
+        "latitude": 0,
+        "housing_median_age": 0,
+        "total_rooms": 0,
+        "total_bedrooms": 207,
+        "population": 0,
+        "households": 0,
+        "median_income": 0,
+        "median_house_value": 0,
+        "ocean_proximity": 0
+      },
+      "duplicates_before": 0,
+      "rows": 20640,
+      "nulls_after": 0,
+      "status": "PASS"
+    }
+  },
+  "netflix": {
+    "rows_bronze": 7787,
+    "rows_silver": 7787,
+    "dq": {
+      "nulls_before": {
+        "show_id": 0,
+        "type": 0,
+        "title": 0,
+        "director": 2389,
+        "cast": 718,
+        "country": 507,
+        "date_added": 10,
+        "release_year": 0,
+        "rating": 7,
+        "duration": 0,
+        "listed_in": 0,
+        "description": 0
+      },
+      "duplicates_before": 0,
+      "rows": 7787,
+      "nulls_after": 98,
+      "status": "PASS"
+    }
+  }
+}
