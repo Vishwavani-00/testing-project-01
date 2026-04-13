@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Superstore Sales Pipeline Data Pipeline DE Pipeline Report</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+<style type="text/css">
+body {font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857;color:#333;background:#fff;counter-reset:h2counter;}
+div.container-fluid.main-container {max-width:1200px;margin:0 auto;}
+#TOC {position:fixed;top:0;width:20%;max-width:260px;max-height:85%;border:1px solid #ccc;border-radius:6px;overflow:auto;overflow-y:auto;margin:25px 0 20px 0;padding:0;background:#fff;z-index:1000;}
+#TOC ul {list-style:none;margin:0;padding:0;border:none;}
+#TOC .tocify-subheader {display:none;}
+#TOC .list-group-item {display:block;padding:4px 15px;border:0;border-radius:0;background-color:inherit;color:#000;cursor:pointer;font-size:14px;text-decoration:none;}
+#TOC .tocify-subheader .list-group-item {padding-left:25px;font-size:12.6px;}
+#TOC .tocify-subheader .tocify-subheader .list-group-item {padding-left:35px;font-size:11.9px;}
+#TOC .list-group-item:hover {background-color:#f5f5f5;text-decoration:none;}
+#TOC .list-group-item.active,#TOC .list-group-item.active:hover,#TOC .list-group-item.active:focus {color:#fff;background-color:#337ab7;border-color:#337ab7;}
+.toc-content {padding-left:30px;padding-right:40px;counter-reset:h2counter;}
+.toc-content h2 {font-size:30px;font-weight:400;color:#1f4e79;margin-top:30px;counter-increment:h2counter;counter-reset:h3counter;}
+.toc-content h2::before {content:counter(h2counter) ". ";font-weight:500;}
+.toc-content h3 {font-size:24px;font-weight:400;color:#333;margin-top:22px;counter-increment:h3counter;}
+.toc-content h3::before {content:counter(h2counter) "." counter(h3counter) " ";font-weight:500;}
+h1.title {font-size:38px;color:#800000;margin-top:0;}
+.section.level2 {margin-top:28px;padding-bottom:18px;border-bottom:2px solid #e8edf3;}
+.section.level3 {margin-top:14px;}
+table {margin:14px auto;border-collapse:collapse;border:none;font-size:12px;color:#000;width:100%;}
+thead {border-bottom:2px solid #1f4e79;vertical-align:bottom;background:#eaf2fb;}
+th {background:#eaf2fb;color:#1f4e79;font-weight:700;border-bottom:2px solid #1f4e79;}
+tr,th,td {text-align:left;vertical-align:middle;padding:0.5em 0.8em;border:none;}
+tbody tr:nth-child(odd) {background:#f5f5f5;}
+tbody tr:hover {background:rgba(66,165,245,0.15);}
+.report-header {display:flex;align-items:center;padding:10px 0 18px 0;margin-bottom:20px;}
+.report-header .logo {flex:0 0 120px;}
+.report-header .logo img {height:90px;}
+.report-header .title-block {flex:1;text-align:center;}
+.report-header .title-block .title-text {font-size:28px;font-weight:700;color:#800000;line-height:1.2;}
+.report-header .title-block .title-sub {font-size:17px;font-weight:400;color:#800000;margin-top:4px;}
+.report-header .title-block .author-date {font-size:14px;color:#34495e;margin-top:4px;}
+.report-header .spacer {flex:0 0 120px;}
+.report-footer {
+  width:100%;
+  margin-top:60px;
+  padding:0;
+  box-sizing:border-box;
+}
+.report-footer .footer-rule {
+  display:block;
+  width:100%;
+  height:2px;
+  background:#800000;
+  border:none;
+  margin:0 0 8px 0;
+}
+.report-footer .footer-subtitle {
+  display:block;
+  text-align:center;
+  font-size:12px;
+  color:#444;
+  font-style:italic;
+  letter-spacing:0.3px;
+  margin:0;
+  padding-bottom:18px;
+}
+.signal-tag {display:inline-block;padding:2px 9px;border-radius:3px;font-size:11px;font-weight:700;}
+@media print {#TOC {display:none;} .col-sm-8 {width:100%;} .toc-content {padding-left:0;padding-right:0;}}
+</style>
+</head>
+<body>
+<div class="container-fluid main-container">
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3"><div id="TOC"></div></div>
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+<!-- Header -->
+<div class="report-header">
+  <div class="logo"><img src="http://upload.wikimedia.org/wikipedia/en/0/0c/Mu_Sigma_Logo.jpg" alt="Mu Sigma"/></div>
+  <div class="title-block">
+    <div class="title-text">Superstore Sales Pipeline Data Pipeline</div>
+    <div class="title-sub">Data Engineering Pipeline Report</div>
+    <div class="author-date"><b>Author:</b> Ved &nbsp;|&nbsp; <b>Version:</b> 26.04.06 &nbsp;|&nbsp; <b>Date:</b> April 13, 2026</div>
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S1 · EXECUTIVE SUMMARY
+     ═══════════════════════════════════════════════════════════ -->
+<div id="executive-summary" class="section level2">
+<h2>Executive Summary</h2>
+
+<p style="font-size:13px;color:#2c3e50;line-height:1.8;margin-bottom:16px">Build a scalable data engineering pipeline for analytical consumption.</p>
+
+<ul style="font-size:13px;color:#2c3e50;padding-left:22px;line-height:1.9;margin-bottom:20px">
+<li><strong>Architecture:</strong> MEDALLION (BRONZE-SILVER-GOLD) : MEDALLION (BRONZE-SILVER-GOLD) pattern selected based on source data characteristics.</li>
+<li><strong>Dataset Profile:</strong> Small Dataset (0 rows), low schema complexity : Minimal compute requirements : standard batch processing optimal.</li>
+<li><strong>Layer Strategy:</strong> Bronze (raw fidelity) -&gt; Silver (0 clean records) -&gt; Gold (0 aggregated rows).</li>
+<li>No null handling required : all columns fully populated in source.</li><li>No deduplication required : all 0 source records are unique.</li><li>No PII masking required : dataset contains no sensitive columns.</li>
+<li>100% row retention : all 0 source records passed Silver transformation unchanged.</li>
+<li>Post-transform DQ score of 0% is below the 90% threshold : review DQ Scorecard before promoting to production.</li>
+</ul>
+
+<table><thead><tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>Architecture Pattern</td><td>MEDALLION (BRONZE-SILVER-GOLD)</td><td>MEDALLION (BRONZE-SILVER-GOLD) pattern selected based on source data characteristics.</td></tr>
+<tr><td>Null Handling</td><td>Pass-through (no nulls)</td><td>Source data fully complete - no intervention required.</td></tr>
+<tr><td>Deduplication</td><td>Not required</td><td>All source records are unique.</td></tr>
+<tr><td>PII Masking</td><td>Not required</td><td>No sensitive columns detected in source.</td></tr>
+<tr><td>Gold Aggregation</td><td>Dimensional group-by aggregation</td><td>Pre-computed KPIs reduce dashboard query latency and ensure metric consistency.</td></tr>
+<tr><td>DQ Gate</td><td>90% minimum threshold</td><td>DQ score 100% : data cleared for Gold-layer promotion.</td></tr>
+</tbody></table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S2 · DATASET OVERVIEW  (renamed from Source Data Profile)
+     ═══════════════════════════════════════════════════════════ -->
+<div id="source-profile" class="section level2">
+<h2>Dataset Overview</h2>
+
+<div id="profile-basic" class="section level3">
+<h3>Basic Dataset Information</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>Scope:</strong> Structured inventory of foundational dataset attributes captured at first contact with the source system.</li>
+<li><strong>Source Identity:</strong> Uniquely identifies the data artifact across pipeline runs : source path, format, and file size.</li>
+<li><strong>Dimensional Scope:</strong> Row count and column count establish the baseline for downstream memory and compute planning.</li>
+<li><strong>Business Intent:</strong> Declared purpose statement governs architecture selection and transformation priority.</li>
+<li><strong>PII Obligations:</strong> PII column identification triggers mandatory masking in Silver : preventing sensitive data from reaching analytical layers.</li>
+<li><strong>Incident Use:</strong> Engineering teams reference this block to confirm source identity and ingestion completeness during investigations.</li>
+</ul>
+<table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody>
+<tr><td>Source System / File</td><td><code>A</code></td></tr>
+<tr><td>File Format</td><td>CSV</td></tr>
+<tr><td>File Size</td><td>0.0 KB</td></tr>
+<tr><td>Number of Rows</td><td><strong>0</strong></td></tr>
+<tr><td>Number of Columns</td><td><strong>0</strong></td></tr>
+<tr><td>Data Ingestion Method</td><td>Csv ingestion via automated pipeline</td></tr>
+<tr><td>Data Refresh Frequency</td><td>Full load : daily</td></tr>
+<tr><td>Business Purpose</td><td>N/A</td></tr>
+<tr><td>Sensitive Columns (PII)</td><td>None detected</td></tr>
+</tbody></table>
+</div>
+<div id="profile-schema" class="section level3">
+<h3>Column Details and Business Meaning</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>Schema Inventory:</strong> Field-level inventory combining technical type information with business semantic interpretation for every column.</li>
+<li><strong>Null Tolerance:</strong> Distinguishes fields where absence is structurally expected from those indicating upstream data collection failures.</li>
+<li><strong>Business Meaning:</strong> Bridges technical column names to their operational significance : enabling accurate KPI construction and filter logic.</li>
+<li><strong>Cardinality:</strong> Distinct value count informs join strategy, indexing decisions, aggregation grain, and dimension vs. fact treatment.</li>
+<li><strong>Primary Key Columns:</strong> PK columns are validated for uniqueness and treated as non-nullable : ffill→bfill→drop strategy applied in Silver.</li>
+<li><strong>PII Masking:</strong> PII-flagged columns require mandatory SHA-256 masking prior to Silver write : must never appear unmasked in any analytical layer.</li>
+</ul>
+<div style="overflow-x:auto;margin-bottom:20px">
+<table style="width:100%;min-width:900px"><thead><tr>
+<th>Column Name</th><th>Data Type</th><th>Nullable</th><th>Business Meaning</th><th>Unique Values (Cardinality)</th>
+</tr></thead><tbody></tbody></table>
+</div>
+</div>
+<div id="profile-sample" class="section level3">
+<h3>Source Data Preview</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>All 0 rows displayed</strong> : use the search box to filter, click column headers to sort, and use page controls to navigate.</li>
+<li><strong>Ground Truth:</strong> Raw source records in original form : extracted before any cleansing, type coercion, or business rule application.</li>
+<li><strong>Verification Use:</strong> Compare these values against the Transformation Log to confirm standardization and null-handling rules applied correctly in Silver.</li>
+<li><strong>Anomaly Detection:</strong> Look for mixed-format dates, inconsistent casing, embedded whitespace, or numeric-as-string values in this preview.</li>
+</ul>
+<p>Source data preview not available : run Stage 1 to generate.</p>
+</div>
+<div id="profile-dq" class="section level3">
+<h3>Data Quality Checks</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>Scope:</strong> Pre-ingestion quality signals from Stage 1 profiling : the dataset's raw quality state before any transformation.</li>
+<li><strong>HIGH severity:</strong> Blocking defect : if uncorrected, produces materially incorrect analytics or exposes regulated data. Requires remediation before production.</li>
+<li><strong>MEDIUM severity:</strong> Degraded quality condition : warrants monitoring and corrective action within the current sprint cycle.</li>
+<li><strong>LOW severity:</strong> Informational observation : negligible business impact under current consumption patterns.</li>
+<li><strong>Automated Gates:</strong> All checks execute automatically on every run against configurable thresholds : consistent, auditable, independent of manual review.</li>
+<li><strong>Remediation Guidance:</strong> Recommended actions column provides prescriptive, defect-specific fixes : enabling targeted corrections rather than broad schema rewrites.</li>
+</ul>
+<table><thead><tr><th>Column(s)</th><th>Quality Dimension</th><th>Observed Finding</th><th>Severity</th><th>Recommended Action</th></tr></thead>
+<tbody><tr><td style="font-size:11px">All columns</td><td>Missing Values</td><td style="font-size:11px">No missing values detected across all 0 columns</td><td><span style="background-color:#155724;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">No action needed.</td></tr><tr><td style="font-size:11px">All rows</td><td>Duplicate Rows</td><td style="font-size:11px">No duplicate rows found : all 0 rows are unique</td><td><span style="background-color:#155724;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">No action needed.</td></tr><tr><td style="font-size:11px">Text columns</td><td>Categorical Consistency</td><td style="font-size:11px">No low-cardinality text columns requiring normalization detected</td><td><span style="background-color:#155724;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">No action needed.</td></tr><tr><td style="font-size:11px">All columns</td><td>PII Detection</td><td style="font-size:11px">No PII columns detected : dataset is safe for standard analytical access</td><td><span style="background-color:#155724;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">No masking required.</td></tr></tbody></table>
+</div>
+<div id="profile-cardinality" class="section level3">
+<h3>Cardinality Analysis</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>Schema Design:</strong> Near-100% unique columns are PK candidates requiring index creation. Near-zero cardinality columns are constants : evaluate for omission from Gold.</li>
+<li><strong>Analytical Modeling:</strong> Low-to-medium cardinality (5–40% uniqueness) are the most productive GROUP BY dimensions for segmentation, cohorts, and KPI decomposition.</li>
+<li><strong>Storage Optimization:</strong> Bounded-cardinality columns are candidates for dictionary encoding or enum compression : reducing footprint and improving scan performance.</li>
+<li><strong>Drift Detection:</strong> Cardinality deviations from prior runs are early indicators of schema drift, data model changes, or upstream collection anomalies.</li>
+</ul>
+<table><thead><tr><th>Column</th><th style="text-align:right">Unique Values</th><th style="text-align:right">% of Total Rows</th><th>Interpretation</th></tr></thead>
+<tbody></tbody></table>
+</div>
+<div id="profile-fileissues" class="section level3">
+<h3>File Integrity and Format Validation</h3>
+<ul style="font-size:12px;color:#34495e;margin-bottom:8px;padding-left:20px;line-height:1.9">
+<li><strong>Encoding:</strong> UTF-8 conformance check : prevents mojibake from propagating into analytical layers.</li>
+<li><strong>Delimiter:</strong> CSV contract validation : confirms source and parser delimiter agreement is stable across runs.</li>
+<li><strong>Header Structure:</strong> Column count validated against expected schema : flags unexpected additions, removals, or renames.</li>
+<li><strong>Schema Drift:</strong> Detects column changes that would silently break downstream join keys or aggregation logic.</li>
+<li><strong>Blocking Policy:</strong> File-level failures halt ingestion : structurally compromised data never reaches Bronze.</li>
+<li><strong>WARN Triage:</strong> Every WARN finding is surfaced to the engineering team for triage within the current run SLA window.</li>
+</ul>
+<table><thead><tr><th>Issue Type</th><th>Observed Finding</th><th>Status</th><th>Notes</th></tr></thead>
+<tbody><tr><td>Encoding</td><td>UTF-8</td><td><span style="background:#28a745;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">File read successfully with UTF-8 encoding. 0 rows parsed without encoding errors.</td></tr><tr><td>Delimiter</td><td>Comma (,)</td><td><span style="background:#28a745;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">Standard CSV delimiter detected and parsed correctly.</td></tr><tr><td>Header Row</td><td>Present</td><td><span style="background:#28a745;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">Column headers found in first row. 0 column(s) detected: .</td></tr><tr><td>Column Count</td><td>0 columns</td><td><span style="background:#28a745;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">Column count matches expected schema : 0 column(s) validated.</td></tr><tr><td>Schema Drift</td><td>Not detected</td><td><span style="background:#28a745;color:#fff;padding:2px 7px;border-radius:3px;font-size:11px;font-weight:700">PASS</span></td><td style="font-size:11px;color:#2c3e50">Column names and types are consistent with the declared schema.</td></tr></tbody></table>
+</div>
+
+<div id="observed-characteristics" class="section level3">
+<h3>Observed Dataset Characteristics</h3>
+<table style="width:100%;margin-bottom:16px">
+<thead><tr><th>Signal</th><th>Observed Value</th><th>Classification</th><th>Engineering Implication</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Dataset Size</strong></td>
+  <td>0 rows</td>
+  <td><span style="background:#e9ecef;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">Small Dataset</span></td>
+  <td style="font-size:12px">Minimal compute requirements : standard batch processing optimal.</td>
+</tr>
+<tr>
+  <td><strong>Schema Width</strong></td>
+  <td>0 columns (0 numeric, 0 text)</td>
+  <td><span style="background:#e9ecef;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">Low Complexity</span></td>
+  <td style="font-size:12px">Narrow schema : straightforward STM mapping, minimal join complexity.</td>
+</tr>
+<tr>
+  <td><strong>Null Rate</strong></td>
+  <td>0% : all 0 columns fully populated</td>
+  <td><span style="background:#d4edda;color:#155724;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">Clean</span></td>
+  <td style="font-size:12px">No null handling required in Silver layer.</td>
+</tr>
+<tr>
+  <td><strong>Duplicate Rate</strong></td>
+  <td>0% : 0 unique rows confirmed</td>
+  <td><span style="background:#d4edda;color:#155724;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">No Duplicates</span></td>
+  <td style="font-size:12px">Row identity confirmed : Silver deduplication pass not required.</td>
+</tr>
+<tr>
+  <td><strong>PII Exposure</strong></td>
+  <td>None detected</td>
+  <td><span style="background:#d4edda;color:#155724;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">None Detected</span></td>
+  <td style="font-size:12px">No masking obligations triggered : standard data handling applies.</td>
+</tr>
+<tr>
+  <td><strong>Cardinality</strong></td>
+  <td>Standard distribution across all columns</td>
+  <td><span style="background:#e9ecef;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">Mixed</span></td>
+  <td style="font-size:12px">High-cardinality → index candidates. Low-cardinality → GROUP BY dimensions for Gold aggregation.</td>
+</tr>
+<tr>
+  <td><strong>Overall Quality</strong></td>
+  <td>DQ Score: <strong>0%</strong></td>
+  <td><span style="background:#d4edda;color:#155724;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600">Excellent</span></td>
+  <td style="font-size:12px">Zero nulls and zero duplicates : source data is production-grade clean.</td>
+</tr>
+</tbody></table>
+<div style="background:#f0f9f0;border-left:4px solid #28a745;border-radius:4px;padding:14px 18px;margin-top:8px">
+<p style="font-size:12px;font-weight:700;color:#155724;margin:0 0 8px 0;letter-spacing:0.5px">ENGINEERING IMPLICATIONS : DERIVED FROM THIS DATASET</p>
+<ul style="font-size:12px;color:#1a3a1a;margin:0;padding-left:18px;line-height:1.9">
+<li>No null handling required : all columns fully populated in source.</li><li>No deduplication required : all 0 source records are unique.</li><li>No PII masking required : dataset contains no sensitive columns.</li>
+<li>100% row retention : all 0 source records passed Silver transformation unchanged.</li>
+<li>Post-transform DQ score of 0% is below the 90% threshold : review DQ Scorecard before promoting to production.</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S3 · DATA ARCHITECTURE DESIGN
+     ═══════════════════════════════════════════════════════════ -->
+<div id="architecture" class="section level2">
+<h2>Data Architecture Design</h2>
+
+<div id="arch-selection-logic" class="section level3">
+<h3>Architecture Selection Logic</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Dataset Size:</strong> small dataset : informs partitioning and batch vs. stream strategy.</li>
+<li><strong>Schema Width:</strong> low complexity (0 columns) : determines transformation overhead and join complexity.</li>
+<li><strong>Quality Baseline:</strong> Clean source : minimal remediation needed.</li>
+<li><strong>PII Profile:</strong> None detected : standard handling.</li>
+<li><strong>Purpose Alignment:</strong> </li>
+</ul>
+</div>
+
+<div id="arch-overview" class="section level3">
+<h3>Selected Architecture Pattern</h3>
+
+<table style="width:100%;margin-bottom:12px"><tbody>
+<tr><td style="width:160px;font-weight:600;color:#333">Selected Pattern</td>
+<td><strong style="font-size:16px;color:#800000">MEDALLION (BRONZE-SILVER-GOLD)</strong>
+
+</td></tr>
+<tr><td style="font-weight:600;color:#333">What It Means</td><td>Bronze to Silver to Gold layered pipeline</td></tr>
+
+</tbody></table>
+
+
+
+</div>
+
+<div id="arch-layers" class="section level3">
+<h3>Medallion Layer Design</h3>
+<table><thead><tr><th>Layer</th><th>Table</th><th>Role</th><th>Row Count</th><th>Contents</th><th>Consumers</th></tr></thead><tbody>
+<tr><td><strong style="color:#c0392b">Bronze</strong></td><td><code>superstore_sales_pipeline_bronze</code></td><td>Raw landing zone : zero modification</td><td>0</td><td>All source records verbatim including duplicates and nulls</td><td>Data engineers (debugging, reprocessing)</td></tr>
+<tr><td><strong style="color:#d35400">Silver</strong></td><td><code>superstore_sales_pipeline_silver</code></td><td>Trusted, clean, validated data</td><td>0 (0.0%)</td><td>Deduplicated, typed, null-handled, DQ-flagged, audit-stamped records</td><td>Analysts, data scientists, downstream pipelines</td></tr>
+<tr><td><strong style="color:#27ae60">Gold</strong></td><td><code>superstore_sales_pipeline_gold</code></td><td>Business-ready aggregations</td><td>0</td><td>Pre-computed KPIs and dimensional summaries</td><td>BI tools, dashboards, business stakeholders</td></tr>
+</tbody></table>
+</div>
+
+<div id="arch-bronze" class="section level3">
+<h3>Bronze Layer</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Policy:</strong> Append-only, zero transformation : every source record stored exactly as received.</li>
+<li><strong>Purpose:</strong> Enables full pipeline reprocessing without re-querying the source system : historical backfills and schema change recovery.</li>
+<li><strong>Access:</strong> Engineering team only : not accessible to analytical consumers due to raw data quality.</li>
+</ul>
+</div>
+
+<div id="arch-silver" class="section level3">
+<h3>Silver Layer</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Null Handling:</strong> No nulls in source : no handling required.</li>
+<li><strong>Deduplication:</strong> Not required : all source rows unique.</li>
+<li><strong>PII Masking:</strong> Not required : no sensitive columns detected.</li>
+<li><strong>Audit Columns Added:</strong> ingestion_timestamp, transformation_timestamp, source_file_name, pipeline_run_id, record_status.</li>
+</ul>
+</div>
+
+<div id="arch-gold" class="section level3">
+<h3>Gold Layer</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Aggregation Dimensions:</strong> Standard dimensional grouping by available categorical columns.</li>
+<li><strong>Consumers:</strong> BI dashboards, business reporting tools, executive analytics.</li>
+<li><strong>Refresh Strategy:</strong> Full reload on each pipeline run : deterministic, consistent results every execution.</li>
+</ul>
+</div>
+
+<div id="arch-storage" class="section level3">
+<h3>Storage Strategy</h3>
+<table><thead><tr><th>Aspect</th><th>Decision</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>Format</td><td>CSV (Bronze, Silver, Gold)</td><td>Universal compatibility : readable by all analytical tools and platforms.</td></tr>
+<tr><td>Partitioning</td><td>Not required</td><td>Minimal compute requirements : standard batch processing optimal.</td></tr>
+<tr><td>Compression</td><td>ZIP for delivery bundles</td><td>Reduces transfer size and packaging overhead.</td></tr>
+<tr><td>Retention</td><td>Bronze: permanent | Silver: configurable | Gold: per refresh</td><td>Bronze preserves full reprocessing baseline. Silver retained per enterprise policy. Gold regenerated on each run.</td></tr>
+</tbody></table>
+<pre style="background:#f8f9fa;border:1px solid #dee2e6;border-radius:4px;padding:16px;font-size:11px;overflow-x:auto;margin-top:14px">-- DDL not available. Run Stage 2 to generate the Silver table schema.</pre>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S4 · DATA INGESTION SUMMARY
+     ═══════════════════════════════════════════════════════════ -->
+<div id="ingestion" class="section level2">
+<h2>Data Ingestion Summary</h2>
+
+<div id="ingest-meta" class="section level3">
+<h3>Source Ingestion Metadata</h3>
+<table><thead><tr><th>Attribute</th><th>Value</th></tr></thead><tbody>
+<tr><td>Source System / File</td><td><code>N/A</code></td></tr>
+<tr><td>Source Type</td><td>CSV</td></tr>
+<tr><td>Total Rows Extracted</td><td>0</td></tr>
+<tr><td>Columns Extracted</td><td>0</td></tr>
+<tr><td>Extraction Duration</td><td>0.00s</td></tr>
+<tr><td>Ingestion Strategy</td><td>Full Load</td></tr>
+<tr><td>PII Columns Detected</td><td>None</td></tr>
+<tr><td>Run ID</td><td>superstore_sales_pipeline_April_13_2026</td></tr>
+</tbody></table>
+</div>
+
+<div id="ingest-funnel" class="section level3">
+<h3>Record Volume Tracking</h3>
+
+<table><thead><tr><th>Stage</th><th>Row Count</th><th>Change</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong style="color:#c0392b">Extracted (Bronze)</strong></td><td>0</td><td></td><td>Raw source records, untouched</td></tr>
+<tr><td><strong style="color:#d35400">After Transform (Silver)</strong></td><td>0</td><td>−0 (N/A)</td><td>After dedup, null handling, business rules</td></tr>
+<tr><td><strong style="color:#27ae60">Ready to Load (Gold)</strong></td><td>0</td><td>Retention: N/A</td><td>Aggregated and ready for destination</td></tr>
+</tbody></table>
+
+<div id="chart-funnel" style="height:400px;margin:20px 0"></div>
+<script>
+var data = [{
+  x: [0, 0, 0],
+  y: ['Bronze (Raw)', 'Silver (Clean)', 'Gold (Aggregated)'],
+  type: 'funnel',
+  marker: {color: ['#f4a4a4','#f9c49a','#a8d5a2']},
+  textinfo: 'value+percent initial'
+}];
+var layout = {
+  title: 'Pipeline Record Volume Progression',
+  margin: {l:200,r:50,t:80,b:50},
+  height: 400
+};
+Plotly.newPlot('chart-funnel', data, layout, {displayModeBar:false,responsive:true});
+</script>
+</div>
+
+<div id="ingest-validation" class="section level3">
+<h3>Ingestion Validation</h3>
+<table><thead><tr><th>Check</th><th>Expected</th><th>Observed</th><th>Status</th></tr></thead><tbody>
+<tr><td>Row Count</td><td>&gt; 0</td><td>0</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+<tr><td>Column Count</td><td>0</td><td>0</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+<tr><td>Null Rate</td><td>&lt;= 5%</td><td>0.0%</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+<tr><td>Duplicate Rate</td><td>&lt;= 3%</td><td>0.0%</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+<tr><td>PII Detection</td><td>Scanned</td><td>None detected</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+<tr><td>Source Encoding</td><td>UTF-8</td><td>UTF-8</td><td><span class="signal-tag" style="background:#d4edda;color:#155724">PASS</span></td></tr>
+</tbody></table>
+</div>
+
+<div id="ingest-schema-drift" class="section level3">
+<h3>Schema Drift Detection</h3>
+<table><thead><tr><th>Column</th><th>Expected Type</th><th>Observed Type</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td colspan="4">Schema drift detection requires Stage 1 schema output.</td></tr>
+</tbody></table>
+</div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S5 · TRANSFORMATION LOG
+     ═══════════════════════════════════════════════════════════ -->
+<div id="transformation" class="section level2">
+<h2>Transformation Log</h2>
+
+<div id="transform-summary" class="section level3">
+<h3>Transformation Summary</h3>
+<table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total Steps Applied</td><td>0</td></tr>
+<tr><td>Rows In (Bronze)</td><td>0</td></tr>
+<tr><td>Rows Out (Silver)</td><td>0</td></tr>
+<tr><td>Net Row Change</td><td>+0 (0.0% retention)</td></tr>
+<tr><td>Null Handling Applied</td><td>No (source clean)</td></tr>
+<tr><td>Deduplication Applied</td><td>No (no duplicates in source)</td></tr>
+<tr><td>PII Masking Applied</td><td>No (no PII detected)</td></tr>
+<tr><td>DQ Flags Added</td><td>Yes : per-column quality flag columns added</td></tr>
+<tr><td>Audit Columns Added</td><td>ingestion_timestamp, transformation_timestamp, source_file_name, pipeline_run_id, record_status</td></tr>
+</tbody></table>
+</div>
+
+<div id="transform-rules" class="section level3">
+<h3>Transformation Rules</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Execution Order:</strong> Type enforcement -&gt; Null handling -&gt; Deduplication -&gt; Business rules -&gt; PII masking -&gt; Audit column injection -&gt; DQ flagging.</li>
+<li><strong>Preserve Original:</strong> Raw column values preserved : cleaned values written to <code>_cleaned</code> suffix columns where applicable.</li>
+<li><strong>No Silent Overwrite:</strong> Every transformation is logged with row-level impact counts.</li>
+<li><strong>DQ Flags:</strong> Boolean <code>_flag</code> columns added per quality issue : enabling downstream filtering without schema modification.</li>
+</ul>
+</div>
+
+<div id="transform-row-impact" class="section level3">
+<h3>Row Impact Analysis</h3>
+<p>No transformation steps recorded.</p>
+</div>
+
+<div id="transform-audit" class="section level3">
+<h3>Transformation Audit</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li>All 0 transformation step(s) completed successfully and logged atomically.</li>
+<li>Row retention of 0.0% is below 90% : root cause review required.</li>
+<li>All 0 transformation step(s) are logged with atomic Rows In/Rows Out tracking : satisfies enterprise audit trail requirements.</li>
+<li>For reprocessing: replay all steps in documented order against the Bronze raw layer.</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S6 · DATA QUALITY SCORECARD
+     ═══════════════════════════════════════════════════════════ -->
+<div id="dq-scorecard" class="section level2">
+<h2>Data Quality Scorecard</h2>
+
+<div id="dq-quality-summary" class="section level3">
+<h3>Quality Summary</h3>
+<table><thead><tr><th>Dimension</th><th>Checks Run</th><th>Passed</th><th>Warnings</th><th>Failed</th><th>Score</th></tr></thead><tbody>
+<tr><td><strong>Pre-Transform (Bronze)</strong></td><td>1</td><td style="color:#28a745">1</td><td style="color:#856404">0</td><td style="color:#721c24">0</td><td><strong>100.0%</strong></td></tr>
+<tr><td><strong>Post-Transform (Silver)</strong></td><td>0</td><td style="color:#28a745">0</td><td style="color:#856404">0</td><td style="color:#721c24">0</td><td><strong>N/A%</strong></td></tr>
+</tbody></table>
+</div>
+
+
+
+<div id="dq-catalog" class="section level3">
+<h3>DQ Catalog</h3>
+<div style="overflow-x:auto;margin-bottom:20px">
+<table style="width:100%;min-width:900px">
+<thead><tr><th>#</th><th>Dimension</th><th>Check Name</th><th>What It Validates</th><th>Business Impact</th><th>Threshold</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Completeness</strong></td><td>Null % &lt;= Threshold</td><td>Missing values per column do not exceed limit</td><td>High nulls signal upstream collection failures</td><td>&lt;= 5%</td></tr>
+<tr><td>2</td><td><strong>Completeness</strong></td><td>Required Field Not Null</td><td>Mandatory fields (ID, date) contain values in every row</td><td>Missing required fields break joins and reports</td><td>0% nulls</td></tr>
+<tr><td>3</td><td><strong>Uniqueness</strong></td><td>Duplicate Row %</td><td>Exact duplicate records above acceptable limit</td><td>Duplicates inflate metrics and indicate ingestion errors</td><td>&lt;= 3%</td></tr>
+<tr><td>4</td><td><strong>Uniqueness</strong></td><td>Primary Key Uniqueness</td><td>Identifier columns contain only unique values</td><td>Non-unique keys break referential integrity</td><td>100% unique</td></tr>
+<tr><td>5</td><td><strong>Validity - Range</strong></td><td>Numeric Value &gt;= Min</td><td>Logical lower bounds respected (e.g. price &gt;= 0)</td><td>Negative anomalies corrupt aggregations</td><td>Field-defined</td></tr>
+<tr><td>6</td><td><strong>Validity - Range</strong></td><td>Numeric Value &lt;= Max</td><td>Logical upper bounds respected (e.g. % &lt;= 100)</td><td>Excessive values distort statistical analysis</td><td>Field-defined</td></tr>
+<tr><td>7</td><td><strong>Validity - Range</strong></td><td>Date Within Valid Window</td><td>Dates within expected business ranges</td><td>Invalid dates break time-series analysis</td><td>Business rule</td></tr>
+<tr><td>8</td><td><strong>Validity - Format</strong></td><td>Email Format</td><td>Email fields match standard regex</td><td>Invalid emails break communication workflows</td><td>100% valid</td></tr>
+<tr><td>9</td><td><strong>Validity - Format</strong></td><td>Phone Format</td><td>Phone numbers match expected pattern</td><td>Malformed phones prevent customer outreach</td><td>100% valid</td></tr>
+<tr><td>10</td><td><strong>Validity - Domain</strong></td><td>Categorical Values in Set</td><td>Only predefined values in categorical columns</td><td>Invalid categories break filters and dashboards</td><td>100% in set</td></tr>
+<tr><td>11</td><td><strong>Type Conformance</strong></td><td>Data Type Match</td><td>Observed types match schema definitions</td><td>Type mismatches cause silent calculation failures</td><td>100% match</td></tr>
+<tr><td>12</td><td><strong>Type Conformance</strong></td><td>Numeric Castability</td><td>Numeric-appearing strings safely convertible</td><td>Non-castable values cause ETL failures</td><td>100% castable</td></tr>
+<tr><td>13</td><td><strong>Consistency</strong></td><td>Cross-Field Logic</td><td>Field relationships valid (start &lt;= end date)</td><td>Logical errors indicate incomplete data updates</td><td>100% consistent</td></tr>
+<tr><td>14</td><td><strong>Freshness</strong></td><td>Data Recency</td><td>Most recent records within staleness threshold</td><td>Stale data reduces decision accuracy</td><td>Configurable per SLA</td></tr>
+<tr><td>15</td><td><strong>Anomaly Detection</strong></td><td>Volume Spike</td><td>Record volume within historical baseline</td><td>Spikes indicate duplicate loads or data leaks</td><td>Configurable baseline</td></tr>
+<tr><td>16</td><td><strong>Anomaly Detection</strong></td><td>Schema Drift</td><td>No unauthorized column/type changes</td><td>Unannounced schema changes break downstream ETL</td><td>0 changes</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="dq-by-category" class="section level3">
+<h3>Category Breakdown</h3>
+<p><strong>Pre-Transform DQ Results by Category</strong></p>
+<table><thead><tr><th>Category</th><th style="text-align:right">PASS</th><th style="text-align:right">WARN</th><th style="text-align:right">FAIL</th><th style="text-align:right">Total</th></tr></thead>
+<tbody><tr><td>Uniqueness</td><td style="color:#28a745;font-weight:700;text-align:right">1</td><td style="color:#856404;font-weight:700;text-align:right">0</td><td style="color:#721c24;font-weight:700;text-align:right">0</td><td style="font-weight:700;text-align:right">1</td></tr></tbody></table>
+<p><strong>Post-Transform DQ Results by Category:</strong> No DQ results available.</p>
+</div>
+
+<div id="dq-detail" class="section level3">
+<h3>Detailed Results</h3>
+<table><thead><tr><th>Check Name</th><th>Category</th><th>Pass / Warn / Fail</th><th>Columns Checked</th></tr></thead>
+<tbody><tr><td colspan="4" style="text-align:center">No DQ check results available for this run.</td></tr></tbody></table>
+</div>
+
+<div id="dq-trends" class="section level3">
+<h3>Quality Trends</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Current Run:</strong> DQ score 100% : Excellent classification.</li>
+<li><strong>Trend Monitoring:</strong> Track DQ score across consecutive runs. A consistent decline across runs signals deteriorating source quality.</li>
+<li><strong>WARN Progression:</strong> Columns in WARN state for 2+ consecutive runs should be escalated to active investigation before they breach the failure threshold.</li>
+<li><strong>Benchmark:</strong> Gold-promotion threshold: 90%. Scores 75-90% require Data Engineering lead review. Current run: <strong>100%</strong> : cleared for promotion.</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S7 · DATA LINEAGE
+     ═══════════════════════════════════════════════════════════ -->
+<div id="lineage" class="section level2">
+<h2>Data Lineage</h2>
+
+<div id="lineage-source-target" class="section level3">
+<h3>Source to Target Flow</h3>
+<p>Lineage data not available. Run all stages to generate.</p>
+</div>
+
+<div id="lineage-layerwise" class="section level3">
+<h3>Layer-wise Lineage</h3>
+<table><thead><tr><th>Layer</th><th>Input</th><th>Transformations Applied</th><th>Output</th><th>Row Count</th></tr></thead><tbody>
+<tr><td><strong>Bronze</strong></td><td>Source file</td><td>None : verbatim copy</td><td>superstore_sales_pipeline_bronze.csv</td><td>0</td></tr>
+<tr><td><strong>Silver</strong></td><td>Bronze layer</td><td>0 step(s): type enforcement, null handling, DQ flagging, audit columns</td><td>superstore_sales_pipeline_transformed.csv</td><td>0</td></tr>
+<tr><td><strong>Gold</strong></td><td>Silver layer</td><td>Dimensional aggregation by categorical columns</td><td>superstore_sales_pipeline_gold_aggregated.csv</td><td>0</td></tr>
+</tbody></table>
+</div>
+
+<div id="lineage-dependencies" class="section level3">
+<h3>Transformation Dependencies</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Stage 1 output</strong> (schema, row count, PII detection) -&gt; drives Stage 2 architecture selection and Stage 3 transformation rules.</li>
+<li><strong>Stage 2 output</strong> (STM, DDL, PII flags) -&gt; drives Stage 3 Silver transformation column mapping and masking strategy.</li>
+<li><strong>Stage 3 output</strong> (transform_log, dq_scorecard, Silver/Gold CSVs) -&gt; drives Stage 4 DAG generation and Stage 5 CI/CD validation.</li>
+<li><strong>Compliance:</strong> Lineage chain is fully documented : retainable for enterprise audit window. All transformations traceable from source to consumer.</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S8 · PIPELINE ORCHESTRATION
+     ═══════════════════════════════════════════════════════════ -->
+<div id="orchestration" class="section level2">
+<h2>Pipeline Orchestration</h2>
+
+<div id="orch-pipeline-flow" class="section level3">
+<h3>Pipeline Flow</h3>
+<table><thead><tr><th>Step</th><th>Operation</th><th>Output</th></tr></thead><tbody>
+<tr><td>1</td><td>Source Extraction</td><td>Bronze CSV (0 rows)</td></tr>
+<tr><td>2</td><td>Silver Transformation (0 steps)</td><td>Silver CSV (0 rows)</td></tr>
+<tr><td>3</td><td>DQ Validation (post-transform)</td><td>DQ scorecard (100%)</td></tr>
+<tr><td>4</td><td>Gold Aggregation</td><td>Gold CSV (0 rows)</td></tr>
+<tr><td>5</td><td>DQ Gate Check</td><td>Passed : Gold promoted</td></tr>
+<tr><td>6</td><td>Delivery (GitHub push + report)</td><td>HTML report + ZIP bundle</td></tr>
+</tbody></table>
+</div>
+
+<div id="orch-trigger" class="section level3">
+<h3>Trigger Configuration</h3>
+<table><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody>
+<tr><td>DAG ID</td><td><code>superstore_sales_pipeline_pipeline</code></td></tr>
+<tr><td>Schedule</td><td>6:00 AM UTC · Daily</td></tr>
+<tr><td>Trigger Mode</td><td>Scheduled + Manual override</td></tr>
+<tr><td>Max Active Runs</td><td>1 (concurrent execution prevention)</td></tr>
+</tbody></table>
+</div>
+
+<div id="orch-retry" class="section level3">
+<h3>Retry Strategy</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Retry Count:</strong> 3 attempts before failure escalation.</li>
+<li><strong>Retry Delay:</strong> 5-minute wait between attempts : prevents retry storms on transient failures.</li>
+<li><strong>Backoff Strategy:</strong> Fixed delay : predictable recovery window within SLA.</li>
+</ul>
+</div>
+
+<div id="orch-failure" class="section level3">
+<h3>Failure Handling</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>DQ Gate Failure:</strong> Pipeline halts at DQ check step : no data written to Gold. On-call engineer notified.</li>
+<li><strong>Transformation Error:</strong> Stage 3 rolls back : Bronze data preserved intact for reprocessing.</li>
+<li><strong>Source Unavailable:</strong> Pipeline fails at Stage 1 with source connectivity error : no partial state written.</li>
+<li><strong>Schema Drift Detected:</strong> Pipeline halts : schema drift alert sent to Data Engineering lead.</li>
+</ul>
+</div>
+
+<div id="orch-scheduling" class="section level3">
+<h3>Scheduling</h3>
+<table><thead><tr><th>Configuration</th><th>Value</th></tr></thead><tbody>
+<tr><td>SLA Window</td><td>120 minutes (2 hours)</td></tr>
+<tr><td>Alert on SLA Breach</td><td>On-call engineer escalation</td></tr>
+<tr><td>Catchup Mode</td><td>Disabled : missed runs not backfilled automatically</td></tr>
+<tr><td>Depends on Past</td><td>False : each run independent</td></tr>
+<tr><td>Step Order</td><td>Extract -&gt; Transform -&gt; Validate -&gt; Aggregate -&gt; Gate -&gt; Deliver</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S9 · DATA GOVERNANCE & COMPLIANCE
+     ═══════════════════════════════════════════════════════════ -->
+<div id="governance" class="section level2">
+<h2>Data Governance and Compliance</h2>
+
+<div id="gov-ownership" class="section level3">
+<h3>Data Ownership</h3>
+<table><thead><tr><th>Role</th><th>Responsibility</th><th>Contact</th></tr></thead><tbody>
+<tr><td>Pipeline Owner</td><td>End-to-end pipeline health, SLA adherence, DQ gate decisions</td><td>On-call data engineer</td></tr>
+<tr><td>Data Steward</td><td>Schema governance, column classifications, retention policy</td><td>Data Architecture team</td></tr>
+<tr><td>Business Owner</td><td>Purpose alignment, Gold-layer KPI definitions, dashboard governance</td><td>Analytics team</td></tr>
+</tbody></table>
+</div>
+
+<div id="gov-access" class="section level3">
+<h3>Access Control</h3>
+<table><thead><tr><th>Layer</th><th>Access Level</th><th>Authorized Consumers</th></tr></thead><tbody>
+<tr><td>Bronze</td><td>Restricted</td><td>Data Engineers only : contains unvalidated raw data</td></tr>
+<tr><td>Silver</td><td>Internal Analytics</td><td>Data Scientists, Analysts : PII masked, DQ validated</td></tr>
+<tr><td>Gold</td><td>Open Analytics</td><td>BI tools, Business teams, Dashboards : aggregated, no row-level PII</td></tr>
+</tbody></table>
+</div>
+
+<div id="gov-pii" class="section level3">
+<h3>PII Detection</h3>
+<table><thead><tr><th>Column</th><th>PII Type</th><th>Treatment</th><th>Layer Safe from</th></tr></thead><tbody>
+<tr><td colspan="4">No PII columns detected in this dataset. Standard data handling applies.</td></tr>
+</tbody></table>
+</div>
+
+<div id="gov-retention" class="section level3">
+<h3>Data Retention</h3>
+<table><thead><tr><th>Layer</th><th>Retention Policy</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>Bronze</td><td>Permanent (or until source re-query is possible)</td><td>Full reprocessing baseline : immutable audit record</td></tr>
+<tr><td>Silver</td><td>Configurable (default 90 days)</td><td>Satisfies enterprise audit retention requirements</td></tr>
+<tr><td>Gold</td><td>Per refresh cycle</td><td>Regenerated deterministically on each run : stateless</td></tr>
+<tr><td>Pipeline Logs</td><td>Configurable (default 90 days)</td><td>SLA monitoring, incident investigation, compliance audits</td></tr>
+</tbody></table>
+</div>
+
+<div id="gov-audit" class="section level3">
+<h3>Audit Logging</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Audit Columns:</strong> Every Silver row contains ingestion_timestamp, transformation_timestamp, source_file_name, pipeline_run_id, record_status.</li>
+<li><strong>Transform Log:</strong> All 0 transformation step(s) logged with rows_in, rows_out, action, notes.</li>
+<li><strong>DQ Scorecard:</strong> Per-run DQ score and check-level detail logged to dq_scorecard.json.</li>
+<li><strong>Compliance:</strong> Audit trail documented : ingestion, transformation, DQ, and PII treatment all logged and retained per enterprise governance policy.</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S10 · PIPELINE PERFORMANCE METRICS
+     ═══════════════════════════════════════════════════════════ -->
+<div id="performance" class="section level2">
+<h2>Pipeline Performance Metrics</h2>
+
+<div id="perf-execution" class="section level3">
+<h3>Execution Time</h3>
+<table><thead><tr><th>Stage</th><th>Duration (s)</th><th>% of Total</th></tr></thead><tbody>
+<tr><td>Stage 1 : Understanding &amp; Profiling</td><td>0.00</td><td>0.0%</td></tr>
+<tr><td>Stage 2 : Architecture Design</td><td>0.00</td><td>0.0%</td></tr>
+<tr><td>Stage 3 : Build &amp; Transform</td><td>0.00</td><td>0.0%</td></tr>
+<tr><td>Stage 4 : Deployment</td><td>0.00</td><td>0.0%</td></tr>
+<tr><td><strong>Total Pipeline Duration</strong></td><td><strong>0.00</strong></td><td>100%</td></tr>
+</tbody></table>
+</div>
+
+<div id="perf-throughput" class="section level3">
+<h3>Throughput</h3>
+<table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Rows Processed per Second</td><td>0.0</td></tr>
+<tr><td>Columns Processed</td><td>0</td></tr>
+<tr><td>DQ Checks Executed</td><td>0</td></tr>
+<tr><td>Transform Steps</td><td>0</td></tr>
+</tbody></table>
+</div>
+
+<div id="perf-resources" class="section level3">
+<h3>Resource Usage</h3>
+<table><thead><tr><th>Resource</th><th>Estimated Usage</th><th>Profile</th></tr></thead><tbody>
+<tr><td>Memory</td><td>&lt; 100 MB</td><td>Minimal</td></tr>
+<tr><td>CPU</td><td>Single-threaded pandas processing</td><td>Low</td></tr>
+<tr><td>Disk (Silver CSV)</td><td>Proportional to 0 x 0 schema</td><td>Small</td></tr>
+<tr><td>Network</td><td>GitHub push (artifacts + report)</td><td>Negligible for this dataset size</td></tr>
+</tbody></table>
+</div>
+
+<div id="perf-optimization" class="section level3">
+<h3>Optimization Opportunities</h3>
+<ul style="font-size:12px;color:#34495e;padding-left:20px;line-height:1.9">
+<li><strong>Scale ready:</strong> Dataset is small dataset (0 rows) : current single-threaded pandas processing is optimal. No optimization needed at this volume.</li>
+<li><strong>Incremental loads:</strong> Switch to date-partitioned incremental ingestion once volume exceeds 100K rows to reduce per-run processing overhead.</li>
+<li><strong>Index strategy:</strong> No high-cardinality PK candidates identified : standard sequential scan appropriate.</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S11 · BUSINESS INSIGHTS & RECOMMENDATIONS
+     ═══════════════════════════════════════════════════════════ -->
+<div id="insights" class="section level2">
+<h2>Business Insights and Recommendations</h2>
+
+<div id="insights-dataset" class="section level3">
+<h3>Dataset Insights</h3>
+<table><thead><tr><th>Observation</th><th>Detail</th><th>Implication</th></tr></thead><tbody>
+<tr><td>Size Classification</td><td>Small Dataset : 0 rows</td><td>Minimal compute requirements : standard batch processing optimal.</td></tr>
+<tr><td>Schema Profile</td><td>0 columns: 0 numeric, 0 text</td><td>Categorical-dominant schema : segmentation and filtering are primary use cases.</td></tr>
+<tr><td>Data Completeness</td><td>Null rate 0.0%:zero nulls</td><td>Source data is fully complete : no completeness-driven bias in downstream analysis.</td></tr>
+<tr><td>Uniqueness</td><td>Duplicate rate 0.0%</td><td>Row-level uniqueness confirmed : no double-counting risk in aggregations.</td></tr>
+
+</tbody></table>
+</div>
+
+<div id="insights-business" class="section level3">
+<h3>Business Observations</h3>
+<table><thead><tr><th>Priority</th><th>Finding</th><th>Business Impact</th><th>Recommended Action</th><th>Expected Outcome</th></tr></thead>
+<tbody><tr><td><strong>P2</strong></td><td>DQ Score: 100% Target Met </td><td style="font-size:11px">All 0 DQ checks passed post-transform.</td><td style="font-size:11px">Continue monitoring DQ score across runs. Set up drift alerts.</td><td style="font-size:11px">Reliable, trusted data in Gold layer.</td></tr><tr><td><strong>P2</strong></td><td>Architecture: SIMPLE Fit Assessment</td><td style="font-size:11px">Simple ETL appropriate for current scale. Consider Medallion if volume or source count grows.</td><td style="font-size:11px">Review architecture quarterly as data volume and use cases grow.</td><td style="font-size:11px">Sustainable pipeline design aligned to business scale.</td></tr></tbody></table>
+</div>
+
+
+<div id="insights-recommendations" class="section level3">
+<h3>Recommendations</h3>
+<table><thead><tr><th>#</th><th>Recommendation</th><th>Priority</th><th>Effort</th></tr></thead><tbody>
+<tr><td>1</td><td>Maintain current pipeline cadence : no DQ intervention required.</td><td>P2</td><td>Low</td></tr>
+<tr><td>2</td><td>No PII governance actions required : dataset is clean.</td><td>P2</td><td>None</td></tr>
+<tr><td>3</td><td>Schedule quarterly schema drift reviews : confirm source column definitions have not changed.</td><td>P2</td><td>Low</td></tr>
+<tr><td>4</td><td>('Dataset size (' + str(raw_rows) + ' rows) is within single-node processing capacity : no scaling intervention required.' if raw_rows < 100_000 else 'Evaluate partitioned incremental loads as data volume (' + str(raw_rows) + ' rows) may stress single-node processing.')</td><td>P2</td><td>None</td></tr>
+<tr><td>5</td><td>Establish DQ trend monitoring : track score across consecutive runs to detect gradual quality drift early.</td><td>P2</td><td>Low</td></tr>
+</tbody></table>
+</div>
+</div>
+
+
+</div><!-- /toc-content -->
+</div><!-- /row -->
+</div><!-- /main-container -->
+
+<!-- Footer : full width, outside layout divs -->
+<div class="report-footer" style="padding:0 24px;">
+  <hr class="footer-rule"/>
+  <span class="footer-subtitle" id="footer-dynamic-text"></span>
+</div>
+<script>
+(function() {
+  var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now = new Date();
+  document.getElementById("footer-dynamic-text").textContent =
+    "Mu Sigma · Confidential · " + months[now.getMonth()] + " " + now.getFullYear()
+    + " · Superstore Sales Pipeline Data Pipeline"
+    + " · Generated by Ved 🧠";
+})();
+</script>
+
+<!-- TOC Builder (canonical MuSigma template script) -->
+<script>
+$(document).ready(function() {
+  var $toc = $('#TOC');
+  var $content = $('.toc-content');
+  var headers = [];
+  var headerIdCounter = 0;
+  $content.find('h2, h3').each(function() {
+    var $h = $(this);
+    var level = this.tagName === 'H2' ? 2 : 3;
+    var id = $h.attr('id');
+    if (!id) { var $parent = $h.closest('.section[id]'); if ($parent.length) id = $parent.attr('id'); }
+    if (!id) { id = 'section-' + headerIdCounter; $h.attr('id', id); }
+    headerIdCounter++;
+    headers.push({ text: $h.text().trim(), id: id, level: level, el: $h });
+  });
+  if (!headers.length) return;
+  var h2n = 0, h3n = 0, html = '', inHeader = false, inSub = false, hIdx = 0;
+  for (var i = 0; i < headers.length; i++) {
+    var h = headers[i]; var label = '';
+    if (h.level === 2) {
+      h2n++; h3n = 0; label = h2n + '. ' + h.text;
+      if (inSub) { html += '</ul>'; inSub = false; }
+      if (inHeader) { html += '</ul>'; inHeader = false; }
+      html += '<ul id="tocify-header' + hIdx + '" class="tocify-header list-group">';
+      html += '<li class="tocify-item list-group-item" data-unique="' + h.id + '">' + label + '</li>';
+      inHeader = true; hIdx++;
+    } else if (h.level === 3) {
+      h3n++; label = h2n + '.' + h3n + ' ' + h.text;
+      if (!inSub) { html += '<ul class="tocify-subheader list-group" data-tag="3">'; inSub = true; }
+      html += '<li class="tocify-item list-group-item" data-unique="' + h.id + '">' + label + '</li>';
+    }
+  }
+  if (inSub) html += '</ul>'; if (inHeader) html += '</ul>';
+  $toc.html(html);
+  $toc.find('.list-group-item').first().addClass('active');
+  function showActiveSub() {
+    var $active = $toc.find('.list-group-item.active');
+    var $parentUl = $active.closest('.tocify-header');
+    var $subParent = $active.closest('.tocify-subheader');
+    var $targetSub = $parentUl.length ? $parentUl.find('.tocify-subheader') : $subParent;
+    $toc.find('.tocify-subheader').not($targetSub).slideUp(150);
+    if ($targetSub && $targetSub.length && $targetSub.is(':hidden')) $targetSub.slideDown(250);
+  }
+  showActiveSub();
+  var isScrolling = false;
+  $toc.on('click', '.list-group-item', function(e) {
+    e.preventDefault();
+    var targetId = $(this).data('unique');
+    var $target = $('[id="' + targetId + '"]').first();
+    if ($target.length) {
+      isScrolling = true;
+      $toc.find('.list-group-item').removeClass('active');
+      $(this).addClass('active'); showActiveSub();
+      $('html, body').stop().animate({ scrollTop: $target.offset().top - 60 }, 400, function() {
+        setTimeout(function() { isScrolling = false; }, 100);
+      });
+    }
+  });
+  var scrollTimer;
+  $(window).on('scroll', function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      if (isScrolling) return;
+      var scrollTop = $(window).scrollTop() + 80;
+      var activeHeader = null;
+      for (var j = headers.length - 1; j >= 0; j--) {
+        var $el = headers[j].el;
+        var $section = $el.closest('.section[id]');
+        var top = ($section.length ? $section : $el).offset().top;
+        if (top <= scrollTop) { activeHeader = headers[j]; break; }
+      }
+      if (activeHeader) {
+        $toc.find('.list-group-item').removeClass('active');
+        $toc.find('.list-group-item[data-unique="' + activeHeader.id + '"]').addClass('active');
+        showActiveSub();
+      }
+    }, 50);
+  });
+});
+</script>
+
+</body>
+</html>

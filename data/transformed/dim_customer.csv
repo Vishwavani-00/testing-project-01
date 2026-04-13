@@ -1,0 +1,795 @@
+customer_id,customer_name,segment
+CG-10604,Customer_433,Consumer
+CG-10006,Customer_778,Consumer
+CG-10747,Customer_471,Home Office
+CG-10103,Customer_390,Corporate
+CG-10167,Customer_474,Corporate
+CG-10217,Customer_672,Corporate
+CG-10521,Customer_506,Consumer
+CG-10696,Customer_739,Consumer
+CG-10519,Customer_109,Home Office
+CG-10580,Customer_81,Consumer
+CG-10730,Customer_320,Corporate
+CG-10072,Customer_725,Home Office
+CG-10248,Customer_485,Corporate
+CG-10111,Customer_255,Consumer
+CG-10051,Customer_668,Home Office
+CG-10271,Customer_466,Corporate
+CG-10514,Customer_544,Consumer
+CG-10634,Customer_84,Corporate
+CG-10009,Customer_470,Home Office
+CG-10556,Customer_721,Corporate
+CG-10734,Customer_352,Consumer
+CG-10652,Customer_269,Consumer
+CG-10315,Customer_374,Consumer
+CG-10422,Customer_26,Consumer
+CG-10227,Customer_205,Corporate
+CG-10695,Customer_550,Corporate
+CG-10394,Customer_591,Consumer
+CG-10737,Customer_308,Home Office
+CG-10415,Customer_562,Consumer
+CG-10674,Customer_87,Corporate
+CG-10625,Customer_787,Consumer
+CG-10180,Customer_713,Home Office
+CG-10627,Customer_737,Home Office
+CG-10450,Customer_80,Home Office
+CG-10338,Customer_556,Corporate
+CG-10551,Customer_766,Home Office
+CG-10637,Customer_547,Consumer
+CG-10345,Customer_780,Corporate
+CG-10204,Customer_21,Home Office
+CG-10700,Customer_615,Consumer
+CG-10443,Customer_371,Home Office
+CG-10088,Customer_286,Corporate
+CG-10569,Customer_11,Home Office
+CG-10301,Customer_227,Corporate
+CG-10277,Customer_314,Corporate
+CG-10303,Customer_233,Corporate
+CG-10587,Customer_292,Corporate
+CG-10155,Customer_153,Home Office
+CG-10312,Customer_583,Home Office
+CG-10002,Customer_419,Corporate
+CG-10435,Customer_118,Home Office
+CG-10705,Customer_312,Home Office
+CG-10783,Customer_689,Corporate
+CG-10356,Customer_419,Corporate
+CG-10258,Customer_332,Consumer
+CG-10208,Customer_274,Home Office
+CG-10565,Customer_418,Consumer
+CG-10249,Customer_468,Home Office
+CG-10193,Customer_715,Consumer
+CG-10507,Customer_38,Consumer
+CG-10076,Customer_481,Corporate
+CG-10646,Customer_701,Corporate
+CG-10300,Customer_368,Corporate
+CG-10237,Customer_473,Home Office
+CG-10706,Customer_257,Corporate
+CG-10281,Customer_9,Home Office
+CG-10635,Customer_257,Home Office
+CG-10302,Customer_335,Home Office
+CG-10764,Customer_347,Consumer
+CG-10377,Customer_689,Home Office
+CG-10663,Customer_65,Home Office
+CG-10397,Customer_465,Corporate
+CG-10033,Customer_707,Corporate
+CG-10125,Customer_466,Consumer
+CG-10336,Customer_793,Consumer
+CG-10602,Customer_332,Consumer
+CG-10462,Customer_516,Consumer
+CG-10075,Customer_83,Corporate
+CG-10670,Customer_667,Home Office
+CG-10383,Customer_157,Home Office
+CG-10686,Customer_126,Corporate
+CG-10229,Customer_111,Corporate
+CG-10029,Customer_185,Corporate
+CG-10385,Customer_430,Corporate
+CG-10453,Customer_678,Corporate
+CG-10046,Customer_226,Corporate
+CG-10132,Customer_390,Home Office
+CG-10726,Customer_656,Corporate
+CG-10536,Customer_81,Corporate
+CG-10359,Customer_745,Home Office
+CG-10475,Customer_773,Home Office
+CG-10460,Customer_586,Home Office
+CG-10040,Customer_254,Home Office
+CG-10067,Customer_338,Consumer
+CG-10349,Customer_785,Corporate
+CG-10611,Customer_386,Consumer
+CG-10239,Customer_547,Consumer
+CG-10619,Customer_142,Corporate
+CG-10447,Customer_94,Consumer
+CG-10101,Customer_732,Home Office
+CG-10561,Customer_745,Home Office
+CG-10790,Customer_596,Home Office
+CG-10037,Customer_301,Consumer
+CG-10671,Customer_340,Corporate
+CG-10084,Customer_745,Corporate
+CG-10170,Customer_707,Corporate
+CG-10372,Customer_526,Home Office
+CG-10753,Customer_191,Corporate
+CG-10205,Customer_143,Consumer
+CG-10538,Customer_421,Corporate
+CG-10786,Customer_133,Corporate
+CG-10080,Customer_257,Consumer
+CG-10577,Customer_43,Consumer
+CG-10494,Customer_251,Home Office
+CG-10735,Customer_327,Home Office
+CG-10509,Customer_24,Consumer
+CG-10110,Customer_442,Consumer
+CG-10395,Customer_517,Corporate
+CG-10512,Customer_42,Consumer
+CG-10166,Customer_403,Home Office
+CG-10597,Customer_316,Home Office
+CG-10032,Customer_587,Home Office
+CG-10722,Customer_142,Home Office
+CG-10624,Customer_496,Consumer
+CG-10404,Customer_354,Consumer
+CG-10575,Customer_713,Corporate
+CG-10005,Customer_564,Consumer
+CG-10179,Customer_428,Consumer
+CG-10137,Customer_517,Corporate
+CG-10457,Customer_772,Corporate
+CG-10775,Customer_551,Home Office
+CG-10168,Customer_336,Home Office
+CG-10554,Customer_62,Consumer
+CG-10669,Customer_357,Consumer
+CG-10544,Customer_389,Consumer
+CG-10307,Customer_725,Consumer
+CG-10094,Customer_549,Home Office
+CG-10310,Customer_16,Consumer
+CG-10477,Customer_547,Home Office
+CG-10320,Customer_424,Consumer
+CG-10511,Customer_564,Home Office
+CG-10188,Customer_556,Home Office
+CG-10223,Customer_518,Corporate
+CG-10017,Customer_515,Home Office
+CG-10719,Customer_176,Consumer
+CG-10348,Customer_620,Home Office
+CG-10087,Customer_791,Home Office
+CG-10455,Customer_369,Corporate
+CG-10171,Customer_446,Corporate
+CG-10311,Customer_7,Corporate
+CG-10490,Customer_322,Consumer
+CG-10606,Customer_559,Consumer
+CG-10648,Customer_311,Consumer
+CG-10718,Customer_550,Home Office
+CG-10440,Customer_109,Consumer
+CG-10448,Customer_740,Home Office
+CG-10528,Customer_179,Home Office
+CG-10116,Customer_269,Home Office
+CG-10629,Customer_605,Consumer
+CG-10588,Customer_393,Corporate
+CG-10496,Customer_140,Consumer
+CG-10299,Customer_34,Corporate
+CG-10778,Customer_737,Corporate
+CG-10449,Customer_121,Consumer
+CG-10545,Customer_288,Home Office
+CG-10064,Customer_548,Corporate
+CG-10047,Customer_102,Home Office
+CG-10095,Customer_671,Corporate
+CG-10001,Customer_219,Corporate
+CG-10765,Customer_402,Corporate
+CG-10135,Customer_397,Home Office
+CG-10518,Customer_294,Home Office
+CG-10549,Customer_335,Corporate
+CG-10316,Customer_683,Home Office
+CG-10767,Customer_276,Home Office
+CG-10056,Customer_512,Home Office
+CG-10183,Customer_229,Home Office
+CG-10757,Customer_638,Consumer
+CG-10343,Customer_2,Home Office
+CG-10532,Customer_423,Home Office
+CG-10242,Customer_299,Corporate
+CG-10721,Customer_714,Home Office
+CG-10031,Customer_415,Corporate
+CG-10381,Customer_703,Home Office
+CG-10645,Customer_557,Consumer
+CG-10030,Customer_288,Consumer
+CG-10589,Customer_398,Corporate
+CG-10504,Customer_556,Corporate
+CG-10600,Customer_104,Corporate
+CG-10387,Customer_315,Home Office
+CG-10508,Customer_145,Corporate
+CG-10262,Customer_111,Home Office
+CG-10591,Customer_667,Home Office
+CG-10164,Customer_750,Consumer
+CG-10210,Customer_195,Corporate
+CG-10003,Customer_438,Consumer
+CG-10407,Customer_483,Corporate
+CG-10269,Customer_232,Corporate
+CG-10566,Customer_63,Corporate
+CG-10177,Customer_172,Consumer
+CG-10089,Customer_398,Home Office
+CG-10151,Customer_581,Home Office
+CG-10412,Customer_148,Home Office
+CG-10318,Customer_288,Corporate
+CG-10192,Customer_453,Consumer
+CG-10697,Customer_32,Consumer
+CG-10050,Customer_167,Home Office
+CG-10615,Customer_9,Consumer
+CG-10693,Customer_534,Home Office
+CG-10655,Customer_333,Corporate
+CG-10738,Customer_27,Home Office
+CG-10702,Customer_548,Home Office
+CG-10483,Customer_200,Home Office
+CG-10146,Customer_324,Home Office
+CG-10501,Customer_782,Consumer
+CG-10329,Customer_776,Home Office
+CG-10305,Customer_298,Corporate
+CG-10744,Customer_135,Consumer
+CG-10677,Customer_111,Home Office
+CG-10678,Customer_533,Corporate
+CG-10535,Customer_207,Corporate
+CG-10113,Customer_588,Home Office
+CG-10178,Customer_41,Corporate
+CG-10636,Customer_275,Home Office
+CG-10115,Customer_136,Home Office
+CG-10531,Customer_536,Home Office
+CG-10011,Customer_659,Consumer
+CG-10570,Customer_563,Consumer
+CG-10573,Customer_786,Home Office
+CG-10733,Customer_347,Consumer
+CG-10520,Customer_182,Home Office
+CG-10727,Customer_666,Consumer
+CG-10013,Customer_536,Consumer
+CG-10707,Customer_303,Consumer
+CG-10426,Customer_702,Corporate
+CG-10390,Customer_117,Corporate
+CG-10098,Customer_172,Home Office
+CG-10717,Customer_75,Corporate
+CG-10485,Customer_161,Home Office
+CG-10126,Customer_43,Consumer
+CG-10743,Customer_595,Corporate
+CG-10631,Customer_676,Corporate
+CG-10283,Customer_369,Consumer
+CG-10287,Customer_144,Home Office
+CG-10456,Customer_164,Consumer
+CG-10043,Customer_685,Consumer
+CG-10592,Customer_558,Home Office
+CG-10498,Customer_494,Home Office
+CG-10676,Customer_236,Corporate
+CG-10736,Customer_746,Home Office
+CG-10638,Customer_676,Home Office
+CG-10153,Customer_621,Consumer
+CG-10534,Customer_431,Corporate
+CG-10290,Customer_613,Home Office
+CG-10418,Customer_371,Consumer
+CG-10102,Customer_220,Home Office
+CG-10199,Customer_35,Home Office
+CG-10361,Customer_686,Corporate
+CG-10231,Customer_621,Consumer
+CG-10550,Customer_589,Corporate
+CG-10069,Customer_392,Home Office
+CG-10689,Customer_767,Corporate
+CG-10493,Customer_381,Home Office
+CG-10489,Customer_554,Consumer
+CG-10388,Customer_595,Consumer
+CG-10215,Customer_430,Home Office
+CG-10200,Customer_150,Home Office
+CG-10352,Customer_21,Corporate
+CG-10233,Customer_322,Corporate
+CG-10023,Customer_129,Home Office
+CG-10714,Customer_553,Consumer
+CG-10091,Customer_453,Corporate
+CG-10704,Customer_504,Corporate
+CG-10732,Customer_755,Home Office
+CG-10547,Customer_23,Consumer
+CG-10510,Customer_381,Corporate
+CG-10330,Customer_163,Home Office
+CG-10332,Customer_16,Consumer
+CG-10093,Customer_703,Home Office
+CG-10750,Customer_198,Consumer
+CG-10000,Customer_654,Home Office
+CG-10784,Customer_565,Consumer
+CG-10206,Customer_110,Corporate
+CG-10360,Customer_323,Home Office
+CG-10458,Customer_407,Consumer
+CG-10038,Customer_749,Home Office
+CG-10649,Customer_648,Corporate
+CG-10358,Customer_632,Corporate
+CG-10068,Customer_398,Home Office
+CG-10355,Customer_701,Corporate
+CG-10402,Customer_673,Consumer
+CG-10459,Customer_556,Consumer
+CG-10276,Customer_423,Consumer
+CG-10414,Customer_43,Home Office
+CG-10752,Customer_41,Home Office
+CG-10461,Customer_26,Consumer
+CG-10012,Customer_470,Corporate
+CG-10630,Customer_425,Corporate
+CG-10785,Customer_7,Consumer
+CG-10661,Customer_140,Corporate
+CG-10568,Customer_549,Consumer
+CG-10191,Customer_610,Consumer
+CG-10221,Customer_538,Corporate
+CG-10703,Customer_609,Consumer
+CG-10562,Customer_327,Corporate
+CG-10482,Customer_692,Consumer
+CG-10773,Customer_783,Corporate
+CG-10147,Customer_632,Corporate
+CG-10174,Customer_290,Corporate
+CG-10244,Customer_636,Consumer
+CG-10071,Customer_613,Consumer
+CG-10463,Customer_545,Corporate
+CG-10086,Customer_141,Home Office
+CG-10594,Customer_494,Home Office
+CG-10517,Customer_79,Corporate
+CG-10745,Customer_72,Home Office
+CG-10374,Customer_548,Corporate
+CG-10016,Customer_38,Corporate
+CG-10605,Customer_66,Consumer
+CG-10782,Customer_47,Home Office
+CG-10136,Customer_103,Home Office
+CG-10708,Customer_130,Consumer
+CG-10642,Customer_309,Corporate
+CG-10044,Customer_107,Home Office
+CG-10235,Customer_113,Corporate
+CG-10571,Customer_772,Consumer
+CG-10165,Customer_721,Corporate
+CG-10527,Customer_691,Corporate
+CG-10141,Customer_343,Consumer
+CG-10497,Customer_608,Home Office
+CG-10788,Customer_49,Consumer
+CG-10324,Customer_589,Consumer
+CG-10025,Customer_415,Corporate
+CG-10346,Customer_706,Consumer
+CG-10353,Customer_360,Corporate
+CG-10157,Customer_269,Corporate
+CG-10595,Customer_60,Consumer
+CG-10526,Customer_199,Home Office
+CG-10427,Customer_472,Consumer
+CG-10772,Customer_99,Consumer
+CG-10219,Customer_517,Home Office
+CG-10150,Customer_787,Corporate
+CG-10391,Customer_620,Home Office
+CG-10502,Customer_517,Corporate
+CG-10181,Customer_571,Home Office
+CG-10487,Customer_576,Consumer
+CG-10131,Customer_376,Corporate
+CG-10253,Customer_241,Home Office
+CG-10581,Customer_528,Corporate
+CG-10344,Customer_509,Home Office
+CG-10304,Customer_588,Corporate
+CG-10078,Customer_668,Corporate
+CG-10019,Customer_643,Home Office
+CG-10293,Customer_662,Consumer
+CG-10432,Customer_663,Consumer
+CG-10321,Customer_617,Corporate
+CG-10371,Customer_487,Home Office
+CG-10034,Customer_281,Consumer
+CG-10464,Customer_712,Consumer
+CG-10161,Customer_256,Home Office
+CG-10288,Customer_204,Consumer
+CG-10203,Customer_269,Home Office
+CG-10791,Customer_465,Home Office
+CG-10289,Customer_745,Home Office
+CG-10340,Customer_241,Corporate
+CG-10173,Customer_516,Corporate
+CG-10055,Customer_236,Consumer
+CG-10331,Customer_158,Consumer
+CG-10216,Customer_50,Home Office
+CG-10692,Customer_230,Home Office
+CG-10363,Customer_261,Home Office
+CG-10444,Customer_548,Consumer
+CG-10665,Customer_248,Corporate
+CG-10484,Customer_120,Corporate
+CG-10601,Customer_702,Corporate
+CG-10723,Customer_52,Corporate
+CG-10251,Customer_486,Corporate
+CG-10439,Customer_424,Corporate
+CG-10682,Customer_733,Home Office
+CG-10421,Customer_84,Consumer
+CG-10651,Customer_434,Corporate
+CG-10380,Customer_313,Corporate
+CG-10779,Customer_461,Home Office
+CG-10768,Customer_488,Home Office
+CG-10411,Customer_604,Consumer
+CG-10292,Customer_148,Consumer
+CG-10399,Customer_102,Corporate
+CG-10117,Customer_276,Consumer
+CG-10279,Customer_252,Home Office
+CG-10688,Customer_178,Corporate
+CG-10196,Customer_93,Home Office
+CG-10280,Customer_125,Home Office
+CG-10024,Customer_607,Home Office
+CG-10607,Customer_199,Home Office
+CG-10525,Customer_668,Corporate
+CG-10492,Customer_753,Corporate
+CG-10728,Customer_67,Consumer
+CG-10548,Customer_302,Consumer
+CG-10769,Customer_661,Home Office
+CG-10653,Customer_598,Home Office
+CG-10260,Customer_564,Consumer
+CG-10770,Customer_734,Home Office
+CG-10214,Customer_450,Corporate
+CG-10400,Customer_66,Home Office
+CG-10027,Customer_192,Consumer
+CG-10162,Customer_619,Home Office
+CG-10245,Customer_162,Corporate
+CG-10143,Customer_483,Corporate
+CG-10454,Customer_54,Home Office
+CG-10639,Customer_213,Home Office
+CG-10225,Customer_68,Home Office
+CG-10614,Customer_333,Home Office
+CG-10515,Customer_602,Home Office
+CG-10452,Customer_645,Consumer
+CG-10436,Customer_743,Corporate
+CG-10081,Customer_369,Corporate
+CG-10085,Customer_778,Corporate
+CG-10073,Customer_342,Consumer
+CG-10760,Customer_383,Corporate
+CG-10650,Customer_706,Corporate
+CG-10267,Customer_620,Corporate
+CG-10530,Customer_194,Corporate
+CG-10777,Customer_197,Corporate
+CG-10308,Customer_690,Home Office
+CG-10224,Customer_512,Home Office
+CG-10675,Customer_164,Consumer
+CG-10148,Customer_215,Consumer
+CG-10364,Customer_486,Consumer
+CG-10668,Customer_764,Corporate
+CG-10124,Customer_501,Home Office
+CG-10771,Customer_772,Consumer
+CG-10306,Customer_221,Consumer
+CG-10409,Customer_468,Consumer
+CG-10429,Customer_158,Corporate
+CG-10488,Customer_607,Consumer
+CG-10434,Customer_694,Home Office
+CG-10250,Customer_757,Home Office
+CG-10222,Customer_313,Home Office
+CG-10007,Customer_160,Home Office
+CG-10513,Customer_744,Home Office
+CG-10039,Customer_281,Consumer
+CG-10062,Customer_523,Corporate
+CG-10053,Customer_677,Home Office
+CG-10099,Customer_686,Consumer
+CG-10108,Customer_134,Home Office
+CG-10644,Customer_735,Consumer
+CG-10710,Customer_195,Home Office
+CG-10284,Customer_137,Corporate
+CG-10739,Customer_137,Corporate
+CG-10274,Customer_147,Home Office
+CG-10339,Customer_491,Consumer
+CG-10365,Customer_79,Home Office
+CG-10683,Customer_704,Corporate
+CG-10481,Customer_762,Consumer
+CG-10657,Customer_33,Home Office
+CG-10028,Customer_246,Corporate
+CG-10347,Customer_298,Corporate
+CG-10451,Customer_376,Home Office
+CG-10716,Customer_575,Consumer
+CG-10063,Customer_371,Corporate
+CG-10083,Customer_306,Home Office
+CG-10195,Customer_696,Home Office
+CG-10555,Customer_437,Home Office
+CG-10228,Customer_466,Home Office
+CG-10212,Customer_401,Consumer
+CG-10184,Customer_331,Corporate
+CG-10431,Customer_123,Consumer
+CG-10134,Customer_413,Consumer
+CG-10265,Customer_45,Consumer
+CG-10479,Customer_395,Consumer
+CG-10762,Customer_113,Consumer
+CG-10154,Customer_407,Home Office
+CG-10751,Customer_4,Consumer
+CG-10145,Customer_14,Home Office
+CG-10500,Customer_254,Corporate
+CG-10198,Customer_387,Home Office
+CG-10593,Customer_533,Home Office
+CG-10054,Customer_501,Corporate
+CG-10579,Customer_494,Home Office
+CG-10673,Customer_632,Consumer
+CG-10296,Customer_684,Consumer
+CG-10123,Customer_578,Corporate
+CG-10366,Customer_513,Home Office
+CG-10285,Customer_781,Home Office
+CG-10437,Customer_641,Corporate
+CG-10257,Customer_400,Home Office
+CG-10596,Customer_483,Corporate
+CG-10241,Customer_506,Consumer
+CG-10712,Customer_129,Corporate
+CG-10232,Customer_423,Home Office
+CG-10036,Customer_241,Home Office
+CG-10061,Customer_286,Home Office
+CG-10491,Customer_654,Home Office
+CG-10130,Customer_233,Home Office
+CG-10540,Customer_53,Home Office
+CG-10709,Customer_247,Corporate
+CG-10583,Customer_129,Home Office
+CG-10049,Customer_578,Home Office
+CG-10144,Customer_99,Consumer
+CG-10749,Customer_456,Home Office
+CG-10362,Customer_81,Home Office
+CG-10628,Customer_626,Corporate
+CG-10370,Customer_549,Consumer
+CG-10020,Customer_774,Home Office
+CG-10386,Customer_672,Corporate
+CG-10097,Customer_754,Home Office
+CG-10781,Customer_560,Home Office
+CG-10667,Customer_242,Corporate
+CG-10408,Customer_10,Corporate
+CG-10105,Customer_749,Consumer
+CG-10140,Customer_524,Corporate
+CG-10543,Customer_81,Home Office
+CG-10066,Customer_198,Home Office
+CG-10325,Customer_606,Home Office
+CG-10317,Customer_55,Corporate
+CG-10159,Customer_551,Home Office
+CG-10264,Customer_224,Corporate
+CG-10559,Customer_191,Consumer
+CG-10694,Customer_411,Corporate
+CG-10133,Customer_680,Corporate
+CG-10476,Customer_85,Corporate
+CG-10129,Customer_745,Consumer
+CG-10220,Customer_779,Corporate
+CG-10424,Customer_673,Consumer
+CG-10425,Customer_784,Consumer
+CG-10613,Customer_585,Home Office
+CG-10149,Customer_269,Home Office
+CG-10469,Customer_727,Corporate
+CG-10684,Customer_67,Corporate
+CG-10759,Customer_208,Corporate
+CG-10326,Customer_650,Consumer
+CG-10499,Customer_7,Corporate
+CG-10291,Customer_114,Corporate
+CG-10021,Customer_412,Home Office
+CG-10070,Customer_336,Corporate
+CG-10026,Customer_340,Consumer
+CG-10335,Customer_433,Corporate
+CG-10516,Customer_187,Corporate
+CG-10213,Customer_752,Home Office
+CG-10278,Customer_42,Corporate
+CG-10758,Customer_411,Corporate
+CG-10654,Customer_191,Corporate
+CG-10774,Customer_574,Home Office
+CG-10106,Customer_754,Corporate
+CG-10729,Customer_773,Corporate
+CG-10664,Customer_507,Home Office
+CG-10197,Customer_618,Consumer
+CG-10247,Customer_447,Home Office
+CG-10256,Customer_180,Corporate
+CG-10741,Customer_330,Corporate
+CG-10582,Customer_200,Home Office
+CG-10323,Customer_626,Home Office
+CG-10687,Customer_581,Corporate
+CG-10416,Customer_725,Corporate
+CG-10480,Customer_295,Home Office
+CG-10715,Customer_200,Consumer
+CG-10393,Customer_769,Consumer
+CG-10060,Customer_486,Consumer
+CG-10608,Customer_455,Corporate
+CG-10711,Customer_159,Home Office
+CG-10342,Customer_201,Corporate
+CG-10042,Customer_397,Consumer
+CG-10616,Customer_772,Consumer
+CG-10240,Customer_707,Corporate
+CG-10467,Customer_484,Home Office
+CG-10478,Customer_356,Corporate
+CG-10010,Customer_715,Home Office
+CG-10327,Customer_360,Consumer
+CG-10112,Customer_704,Consumer
+CG-10234,Customer_731,Corporate
+CG-10599,Customer_544,Consumer
+CG-10640,Customer_371,Consumer
+CG-10766,Customer_131,Corporate
+CG-10295,Customer_609,Home Office
+CG-10685,Customer_675,Consumer
+CG-10523,Customer_582,Corporate
+CG-10373,Customer_50,Consumer
+CG-10446,Customer_286,Consumer
+CG-10546,Customer_192,Consumer
+CG-10139,Customer_1,Corporate
+CG-10382,Customer_25,Corporate
+CG-10403,Customer_226,Consumer
+CG-10350,Customer_632,Home Office
+CG-10428,Customer_241,Corporate
+CG-10474,Customer_675,Corporate
+CG-10445,Customer_789,Home Office
+CG-10041,Customer_228,Corporate
+CG-10558,Customer_257,Home Office
+CG-10756,Customer_308,Corporate
+CG-10109,Customer_489,Consumer
+CG-10209,Customer_479,Corporate
+CG-10120,Customer_744,Home Office
+CG-10035,Customer_546,Consumer
+CG-10272,Customer_731,Home Office
+CG-10058,Customer_646,Home Office
+CG-10542,Customer_154,Corporate
+CG-10590,Customer_385,Home Office
+CG-10158,Customer_690,Consumer
+CG-10160,Customer_364,Corporate
+CG-10298,Customer_245,Consumer
+CG-10270,Customer_747,Corporate
+CG-10622,Customer_91,Consumer
+CG-10118,Customer_248,Corporate
+CG-10333,Customer_687,Home Office
+CG-10586,Customer_388,Corporate
+CG-10585,Customer_345,Consumer
+CG-10626,Customer_343,Consumer
+CG-10792,Customer_182,Home Office
+CG-10763,Customer_504,Home Office
+CG-10014,Customer_166,Home Office
+CG-10748,Customer_704,Home Office
+CG-10074,Customer_585,Consumer
+CG-10620,Customer_346,Home Office
+CG-10104,Customer_229,Home Office
+CG-10048,Customer_204,Home Office
+CG-10182,Customer_515,Consumer
+CG-10641,Customer_313,Home Office
+CG-10495,Customer_139,Corporate
+CG-10578,Customer_672,Home Office
+CG-10273,Customer_428,Consumer
+CG-10259,Customer_592,Corporate
+CG-10252,Customer_683,Home Office
+CG-10691,Customer_771,Consumer
+CG-10107,Customer_133,Consumer
+CG-10314,Customer_781,Consumer
+CG-10754,Customer_423,Home Office
+CG-10603,Customer_305,Home Office
+CG-10254,Customer_239,Consumer
+CG-10169,Customer_442,Home Office
+CG-10584,Customer_451,Home Office
+CG-10163,Customer_365,Home Office
+CG-10127,Customer_632,Consumer
+CG-10322,Customer_434,Corporate
+CG-10618,Customer_623,Corporate
+CG-10438,Customer_490,Home Office
+CG-10077,Customer_151,Home Office
+CG-10472,Customer_568,Corporate
+CG-10114,Customer_144,Consumer
+CG-10660,Customer_657,Home Office
+CG-10015,Customer_541,Consumer
+CG-10079,Customer_584,Corporate
+CG-10389,Customer_16,Corporate
+CG-10471,Customer_499,Corporate
+CG-10470,Customer_176,Consumer
+CG-10423,Customer_751,Consumer
+CG-10172,Customer_650,Consumer
+CG-10294,Customer_694,Home Office
+CG-10065,Customer_74,Home Office
+CG-10230,Customer_22,Consumer
+CG-10468,Customer_379,Corporate
+CG-10740,Customer_5,Home Office
+CG-10698,Customer_59,Corporate
+CG-10121,Customer_430,Corporate
+CG-10392,Customer_240,Home Office
+CG-10787,Customer_223,Corporate
+CG-10564,Customer_471,Consumer
+CG-10354,Customer_574,Home Office
+CG-10282,Customer_108,Consumer
+CG-10410,Customer_677,Consumer
+CG-10128,Customer_39,Consumer
+CG-10643,Customer_694,Corporate
+CG-10406,Customer_398,Consumer
+CG-10731,Customer_594,Corporate
+CG-10156,Customer_670,Consumer
+CG-10236,Customer_753,Home Office
+CG-10598,Customer_705,Corporate
+CG-10190,Customer_103,Consumer
+CG-10612,Customer_326,Home Office
+CG-10369,Customer_297,Consumer
+CG-10419,Customer_22,Home Office
+CG-10357,Customer_192,Corporate
+CG-10351,Customer_334,Consumer
+CG-10261,Customer_573,Corporate
+CG-10268,Customer_762,Consumer
+CG-10185,Customer_599,Home Office
+CG-10793,Customer_84,Home Office
+CG-10713,Customer_544,Corporate
+CG-10633,Customer_62,Home Office
+CG-10524,Customer_228,Home Office
+CG-10617,Customer_308,Home Office
+CG-10202,Customer_334,Consumer
+CG-10052,Customer_319,Home Office
+CG-10207,Customer_168,Consumer
+CG-10119,Customer_247,Consumer
+CG-10328,Customer_763,Consumer
+CG-10699,Customer_212,Consumer
+CG-10189,Customer_424,Corporate
+CG-10552,Customer_228,Home Office
+CG-10755,Customer_620,Consumer
+CG-10243,Customer_635,Consumer
+CG-10096,Customer_278,Consumer
+CG-10018,Customer_758,Home Office
+CG-10433,Customer_93,Corporate
+CG-10690,Customer_790,Consumer
+CG-10441,Customer_27,Corporate
+CG-10266,Customer_278,Home Office
+CG-10610,Customer_173,Consumer
+CG-10379,Customer_46,Consumer
+CG-10780,Customer_339,Corporate
+CG-10275,Customer_707,Corporate
+CG-10004,Customer_717,Consumer
+CG-10176,Customer_653,Consumer
+CG-10138,Customer_280,Corporate
+CG-10465,Customer_601,Consumer
+CG-10724,Customer_192,Consumer
+CG-10742,Customer_449,Corporate
+CG-10218,Customer_66,Consumer
+CG-10420,Customer_562,Corporate
+CG-10319,Customer_672,Consumer
+CG-10378,Customer_109,Home Office
+CG-10246,Customer_240,Corporate
+CG-10226,Customer_673,Consumer
+CG-10405,Customer_227,Consumer
+CG-10022,Customer_315,Corporate
+CG-10659,Customer_520,Corporate
+CG-10506,Customer_707,Consumer
+CG-10789,Customer_625,Home Office
+CG-10776,Customer_618,Consumer
+CG-10567,Customer_733,Home Office
+CG-10662,Customer_307,Consumer
+CG-10761,Customer_55,Home Office
+CG-10609,Customer_759,Home Office
+CG-10574,Customer_374,Consumer
+CG-10417,Customer_205,Consumer
+CG-10623,Customer_421,Consumer
+CG-10658,Customer_14,Corporate
+CG-10572,Customer_54,Home Office
+CG-10008,Customer_145,Corporate
+CG-10092,Customer_90,Corporate
+CG-10194,Customer_61,Corporate
+CG-10679,Customer_787,Corporate
+CG-10533,Customer_601,Corporate
+CG-10341,Customer_225,Corporate
+CG-10297,Customer_128,Home Office
+CG-10720,Customer_540,Home Office
+CG-10563,Customer_725,Home Office
+CG-10401,Customer_315,Corporate
+CG-10122,Customer_576,Consumer
+CG-10746,Customer_706,Corporate
+CG-10430,Customer_611,Consumer
+CG-10473,Customer_623,Consumer
+CG-10337,Customer_25,Home Office
+CG-10541,Customer_128,Corporate
+CG-10557,Customer_358,Consumer
+CG-10059,Customer_292,Consumer
+CG-10082,Customer_269,Corporate
+CG-10057,Customer_261,Corporate
+CG-10238,Customer_541,Corporate
+CG-10100,Customer_403,Consumer
+CG-10672,Customer_760,Consumer
+CG-10334,Customer_120,Consumer
+CG-10045,Customer_495,Home Office
+CG-10255,Customer_95,Corporate
+CG-10286,Customer_98,Consumer
+CG-10186,Customer_212,Home Office
+CG-10522,Customer_238,Corporate
+CG-10486,Customer_80,Home Office
+CG-10725,Customer_515,Corporate
+CG-10368,Customer_246,Consumer
+CG-10576,Customer_750,Consumer
+CG-10553,Customer_4,Home Office
+CG-10313,Customer_15,Consumer
+CG-10187,Customer_399,Consumer
+CG-10656,Customer_568,Home Office
+CG-10632,Customer_694,Consumer
+CG-10375,Customer_321,Corporate
+CG-10090,Customer_248,Corporate
+CG-10376,Customer_372,Corporate
+CG-10263,Customer_252,Corporate
+CG-10503,Customer_465,Home Office
+CG-10666,Customer_315,Corporate
+CG-10396,Customer_148,Consumer
+CG-10201,Customer_275,Consumer
+CG-10466,Customer_380,Consumer
+CG-10384,Customer_293,Consumer
+CG-10398,Customer_425,Home Office
+CG-10560,Customer_354,Home Office
+CG-10413,Customer_58,Corporate
+CG-10647,Customer_595,Consumer
+CG-10621,Customer_446,Home Office
+CG-10211,Customer_658,Home Office
+CG-10701,Customer_635,Consumer
+CG-10505,Customer_140,Home Office
+CG-10537,Customer_374,Home Office
+CG-10529,Customer_701,Home Office
+CG-10142,Customer_401,Corporate
+CG-10539,Customer_618,Corporate
+CG-10442,Customer_88,Corporate
+CG-10681,Customer_208,Home Office
+CG-10680,Customer_680,Home Office
+CG-10367,Customer_114,Consumer
+CG-10152,Customer_453,Consumer
+CG-10309,Customer_235,Home Office
+CG-10175,Customer_541,Corporate

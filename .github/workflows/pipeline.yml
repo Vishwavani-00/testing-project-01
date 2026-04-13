@@ -1,0 +1,119 @@
+name: Superstore Sales Pipeline CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * *"
+
+env:
+  DQ_THRESHOLD: "0"
+
+jobs:
+  refresh-data:
+    name: Refresh & Validate Data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pandas numpy flake8
+
+      - name: Run DQ checks
+        run: |
+          python3 -c "
+          import sys
+          sys.path.insert(0, '.')
+          from pipeline.dq_checks import run_dq_checks
+          sc = run_dq_checks('data/superstore.csv', 'data/scheduled_dq_check.json')
+          print(f'DQ Score: {sc[\"dq_score_pct\"]}% — {sc[\"status\"]}')
+          "
+
+      - name: Run transform
+        run: |
+          python3 -c "
+          import sys
+          sys.path.insert(0, '.')
+          from pipeline.transform import run_transform
+          tables = run_transform('data/superstore.csv', 'data/transformed')
+          for name, tbl in tables.items():
+              print(f'  {name}: {len(tbl)} rows')
+          "
+
+      - name: Commit updated artifacts
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/scheduled_dq_check.json data/transformed/ || true
+          git diff --staged --quiet || git commit -m "chore: scheduled data refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
+
+  lint:
+    name: Lint Pipeline Code
+    needs: refresh-data
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install flake8
+        run: pip install flake8
+
+      - name: Run flake8
+        run: |
+          flake8 pipeline/airflow_dag.py pipeline/transform.py pipeline/dq_checks.py \
+            --max-line-length=120 --ignore=E501,W503
+
+  validate:
+    name: Validate Pipeline Logic
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas numpy
+
+      - name: Validate transform output
+        run: |
+          python3 -c "
+          import sys, os
+          sys.path.insert(0, '.')
+          from pipeline.transform import run_transform
+          from pipeline.dq_checks import run_dq_checks
+
+          sc = run_dq_checks('data/superstore.csv')
+          print(f'DQ: {sc[\"dq_score_pct\"]}% — {sc[\"status\"]}')
+
+          tables = run_transform('data/superstore.csv', '/tmp/ci_validate')
+          fact = tables['fact_sales']
+          assert len(fact) > 0, 'fact_sales is empty!'
+          assert 'profit_margin' in fact.columns, 'profit_margin missing!'
+          assert 'order_month' in fact.columns, 'order_month missing!'
+          print(f'Validation passed — fact_sales: {len(fact)} rows')
+          "
