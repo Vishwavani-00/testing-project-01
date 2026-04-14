@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-04-14T07:21:49.730491",
+  "total_checks": 6,
+  "passed_checks": 6,
+  "failed_checks": 0,
+  "dq_score_pct": 100.0,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "file_exists",
+      "passed": true,
+      "detail": "File found: data/superstore.csv"
+    },
+    {
+      "check": "schema_match",
+      "passed": true,
+      "detail": "All required columns present"
+    },
+    {
+      "check": "row_count",
+      "passed": true,
+      "detail": "Row count: 9994 (min required: 100)"
+    },
+    {
+      "check": "null_percentage",
+      "passed": true,
+      "detail": "All columns within null threshold",
+      "per_column": {
+        "order_id": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "order_date": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "ship_date": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "ship_mode": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "customer_id": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "customer_name": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "segment": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "country": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "city": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "state": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "region": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "product_id": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "category": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "sub_category": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "product_name": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "sales": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "quantity": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "discount": {
+          "null_pct": 0.0,
+          "passed": true
+        },
+        "profit": {
+          "null_pct": 0.0,
+          "passed": true
+        }
+      }
+    },
+    {
+      "check": "duplicates",
+      "passed": true,
+      "detail": "0 duplicate rows found on ['order_id', 'product_id']"
+    },
+    {
+      "check": "non_negative_values",
+      "passed": true,
+      "detail": "All numeric constraints satisfied",
+      "per_column": {
+        "sales": {
+          "negative_count": 0,
+          "passed": true
+        },
+        "quantity": {
+          "negative_count": 0,
+          "passed": true
+        }
+      }
+    }
+  ]
+}
